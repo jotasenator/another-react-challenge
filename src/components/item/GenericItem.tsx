@@ -25,6 +25,9 @@ export const GenericItem: React.FC<Props> = ({
   const [total, setTotal] = useState(0);
   const [quantity, setQuantity] = useState("0");
 
+  const [prevQuantity, setPrevQuantity] = useState("0");
+  const [prevTotal, setPrevTotal] = useState(0);
+
   const { sumQuantity, setSumQuantity } = useContext(QuantityContext);
   const { sumTotal, setSumTotal } = useContext(TotalContext);
 
@@ -43,8 +46,15 @@ export const GenericItem: React.FC<Props> = ({
   useEffect(() => {
     const totalCalculation = (+price * +quantity).toFixed(2);
     setTotal(+totalCalculation);
-    setSumQuantity(quantity);
-    setSumTotal(totalCalculation);
+
+    setSumQuantity(
+      (prevSumQuantity: number) => prevSumQuantity + (+quantity - +prevQuantity)
+    );
+    setSumTotal(
+      (prevSumTotal: number) => prevSumTotal + (+totalCalculation - +prevTotal)
+    );
+    setPrevQuantity(quantity);
+    setPrevTotal(+totalCalculation);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quantity]);
