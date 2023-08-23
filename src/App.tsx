@@ -4,6 +4,7 @@ import { Navbar } from "./components/navbar/Navbar";
 import { Footer } from "./components/footer/Footer";
 import { YouMightAlsoLike } from "./components/youMightAlsoLike/YouMightAlsoLike";
 import { OrderSummary } from "./components/orderSummary/OrderSummary";
+import Parent from "./components/levelUpState/Parent";
 
 function App() {
   return (
@@ -54,6 +55,8 @@ function App() {
         <YouMightAlsoLike />
         <YouMightAlsoLike />
       </div>
+
+      {/* <Parent /> */}
 
       <div className="footer">
         <Footer />

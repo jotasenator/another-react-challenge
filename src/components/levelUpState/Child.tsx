@@ -1,7 +1,7 @@
 import React from "react";
 
 interface ChildProp {
-  passingValueToParent?: (value: number) => void;
+  passingValueToParent: (value: number) => void;
 }
 
 const Child = ({ passingValueToParent }: ChildProp) => {
@@ -9,9 +9,8 @@ const Child = ({ passingValueToParent }: ChildProp) => {
 
   const handleIncreaseChildValue = () => {
     setChildValue((prev) => prev + 1);
-    if (passingValueToParent) {
-      passingValueToParent(1);
-    }
+
+    passingValueToParent(1);
   };
   return (
     <div style={{ border: "1px solid red", marginTop: "5px", padding: "10px" }}>
