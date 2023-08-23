@@ -60,7 +60,7 @@ export const GenericItem: React.FC<Props> = ({
   }, [quantity]);
 
   return (
-    <>
+    <div data-testid="generic-item">
       {
         <div
           className="genericItem"
@@ -142,6 +142,6 @@ export const GenericItem: React.FC<Props> = ({
           </div>
         </div>
       }
-    </>
+    </div>
   );
 };

@@ -13,7 +13,9 @@ export const OrderSummary: React.FC = () => {
         <span>Number of items</span>
         <div className="btns-summary">
           <div className="sumatoria">
-            <h3>Total: {sumQuantity}</h3>
+            <h3 data-testid="order-summary-total-items">
+              Total: {sumQuantity}
+            </h3>
             <h2 className="sumaTotalPrecios">$ {sumTotal.toFixed(2)}</h2>
           </div>
           <button className="btn-summary-checkout dark-softBackground white">
