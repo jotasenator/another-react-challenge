@@ -33,6 +33,10 @@ export const GenericItem: React.FC<Props> = ({
 
   const handleRemove = () => {
     setDeleteStyle(!deleteStyle);
+
+    const deletedItemTotal = +price * +quantity;
+    setSumTotal((prev: number) => prev - deletedItemTotal);
+    setSumQuantity((prev: number) => prev - +quantity);
   };
 
   const handleEditPack = () => {
